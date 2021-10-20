@@ -8,7 +8,7 @@
     include_tasks:
     - create-droplet.yml
     loop: "{{ my_do_lab_vms }}"
-  tags: deploy-lab
+  tags: build-out-lab
 
 - name: Tear down lab-in-the-cloud
   hosts: localhost
