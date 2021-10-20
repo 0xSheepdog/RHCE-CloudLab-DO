@@ -1,0 +1,23 @@
+---
+- name: Create lab-in-the-cloud
+  hosts: localhost
+  connection: local
+  vars_files: my-lab-vars.yml
+  tasks:
+  - name: Create lab VMs
+    include_tasks:
+    - create-droplet.yml
+    loop: "{{ my_do_lab_vms }}"
+  tags: deploy-lab
+
+- name: Tear down lab-in-the-cloud
+  hosts: localhost
+  connection: local
+  vars_files: my-lab-vars.yml
+  tasks:
+  - name: Destroy lab VMs
+    include_tasks:
+    - destroy-droplet.yml
+    loop: "{{ my_do_lab_vms }}"
+  tags: tear-down-lab
+...

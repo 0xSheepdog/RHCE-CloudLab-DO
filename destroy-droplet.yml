@@ -1,0 +1,5 @@
+- name: Destroy droplet \'"{{ item }}"\'
+  digital_ocean_droplet:
+    state: absent
+    name: "{{ item }}"
+    oauth_token: "{{ my_do_api_token }}"
